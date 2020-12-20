@@ -1,0 +1,24 @@
+{
+  "autoload": {
+    "psr-4": {
+      "PipeLine\\": "PipeLine"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "Tests"
+    }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/kitombadev/DiContainer.git"
+    }
+  ],
+  "require": {
+    "eavmarshall/dicontainer": "^1.0.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  }
+}
