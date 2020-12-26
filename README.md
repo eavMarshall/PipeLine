@@ -73,8 +73,9 @@ public class MyController()
 ```
 
 ### Frameworks
-By writing your code in the frameworks controller, you are bounding yourself to that framework. You should be able to swap out your logging, memcache or any other feature of a framework with another. At any time.
-By binding your company to a framework, you corner your project and potentially leave your company with no option but to do a full re-write.
+Help you to not marry your framework
+- https://temmyraharjo.wordpress.com/2020/02/05/architecture-dont-marry-the-framework/
+- https://dev.to/andersonjoseph/don-t-marry-the-framework-5h63
 
 ### Testing
 Easily mock away any pipeable class
