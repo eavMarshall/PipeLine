@@ -6,7 +6,7 @@ Inspired by RxJs pipe.
 
 Pipeline improves the readability, reusability, testing and helps you disconnect your code from the framework you are using.
 
-###Readability
+### Readability
 You can easily see the pipeable classes and which order they are executed in.
 ```php
 $response = $this->getPipeLineInstance()
@@ -19,7 +19,7 @@ $response = $this->getPipeLineInstance()
     ->execute();
 ```
 
-###Reusability
+### Reusability
 Pipeable classes from other classes can be added to the pipeline, allowing you to group api calls together
 
 ```php
@@ -64,11 +64,11 @@ public class MyController()
 }
 ```
 
-###Frameworks
+### Frameworks
 By writing your code in the frameworks controller, you are bounding yourself to that framework. You should be able to swap out your logging, memcache or any other feature of a framework with another. At any time.
 By binding your company to a framework, you corner your project and potentially leave your company with no option but to do a full re-write.
 
-###Testing
+### Testing
 Easily mock away any pipeable class
 ```php
 $this->container = new DIContainer();
