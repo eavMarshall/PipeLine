@@ -77,13 +77,15 @@ Help you to not marry your framework
 - https://temmyraharjo.wordpress.com/2020/02/05/architecture-dont-marry-the-framework/
 - https://dev.to/andersonjoseph/don-t-marry-the-framework-5h63
 
+By having the pipeline layer between you and your framework, you could potentially use different features from different frameworks.
+
 ### Testing
 Easily mock away any pipeable class
 ```php
-$this->container = new DIContainer();
+$container = new DIContainer();
 
 $securityMock = $this->getMockBuilder(SecurityPipable::class)->getMock();
-$this->container = $this->container->addOverrideRule($securityMock); //set container to return mock
+$container = $container->addOverrideRule($securityMock); //set container to return mock
 
 $response = $this->getPipeLineInstance()
     ->addPipes(
@@ -91,7 +93,4 @@ $response = $this->getPipeLineInstance()
         RunFunction::class
     )
     ->execute();
-
-self::assertEquals('security checked', $response[SecurityPipable::class]);
-self::assertEquals('hello world', $response[RunFunction::class]);
 ```
