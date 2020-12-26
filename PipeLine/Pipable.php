@@ -2,7 +2,7 @@
 
 namespace PipeLine;
 
-interface Pipe
+interface Pipable
 {
     public function invoke(array $pipeResponses);
 }

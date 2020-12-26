@@ -4,7 +4,7 @@ namespace Tests;
 
 use Di\DIContainer;
 use PHPUnit\Framework\TestCase;
-use PipeLine\Pipe;
+use PipeLine\Pipable;
 use PipeLine\PipeLine;
 
 class PipeTest extends TestCase
@@ -25,17 +25,18 @@ class PipeTest extends TestCase
     public function testCreatePipe()
     {
         $response = $this->getPipeLineInstance()
-            ->pipe(
-                SecurityPipe::class,
+            ->addPipes(
+                SecurityPipable::class,
                 RunFunction::class
-            );
+            )
+            ->execute();
 
-        self::assertEquals('security checked', $response[SecurityPipe::class]);
+        self::assertEquals('security checked', $response[SecurityPipable::class]);
         self::assertEquals('hello world', $response[RunFunction::class]);
     }
 }
 
-class SecurityPipe implements Pipe
+class SecurityPipable implements Pipable
 {
     public function invoke(array $pipeResponses)
     {
@@ -43,7 +44,7 @@ class SecurityPipe implements Pipe
     }
 }
 
-class RunFunction implements Pipe
+class RunFunction implements Pipable
 {
     public function invoke(array $pipeResponses)
     {

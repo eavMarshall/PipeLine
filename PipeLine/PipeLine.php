@@ -7,17 +7,32 @@ use Di\DIContainer;
 class PipeLine
 {
     private $container;
+    private $pipes = [];
 
     public function __construct(DIContainer $container)
     {
         $this->container = $container;
     }
 
-    public function pipe(string ...$pipes)
+    /**
+     * @param string ...$pipes
+     * @return $this
+     */
+    public function addPipes(string ...$pipes)
+    {
+        $this->pipes = array_merge($this->pipes, $pipes);
+
+        return $this;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function execute(): array
     {
         $responses = [];
-        foreach ($pipes as $pipeClass) {
-            /** @var Pipe $pipe */
+        foreach ($this->pipes as $pipeClass) {
+            /** @var Pipable $pipe */
             $pipe = $this->container->getInstanceOf($pipeClass);
             $responses[$pipeClass] = $pipe->invoke($responses);
         }
