@@ -25,6 +25,14 @@ Pipeable classes from other classes can be added to the pipeline, allowing you t
 ```php
 public class MyController()
 {
+    public function __construct()
+    {
+        $this->getPipeLineInstance()
+            ->addPipes(
+                LoginSecurity::class
+            );
+    }
+    
     public function getStaff()
     {
         $response = $this->getPipeLineInstance()
