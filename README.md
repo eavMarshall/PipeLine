@@ -73,11 +73,12 @@ public class MyController()
 ```
 
 ### Frameworks
-Help you to not marry your framework
+Help you to divorce your framework
 - https://temmyraharjo.wordpress.com/2020/02/05/architecture-dont-marry-the-framework/
 - https://dev.to/andersonjoseph/don-t-marry-the-framework-5h63
 
-By having the pipeline layer between you and your framework, you could potentially use different features from different frameworks.
+By having the pipeline layer between you and your framework. This would help when migrating
+from one framework to another.
 
 ### Testing
 Easily mock away any pipeable class
