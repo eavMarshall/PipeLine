@@ -30,12 +30,12 @@ class PipeLine
      */
     public function execute(): array
     {
-        $responses = [];
+        $pipeResults = [];
         foreach ($this->pipes as $pipeClass) {
             /** @var Pipable $pipe */
             $pipe = $this->container->getInstanceOf($pipeClass);
-            $responses[$pipeClass] = $pipe->invoke($responses);
+            $pipeResults[$pipeClass] = $pipe->invoke($pipeResults);
         }
-        return $responses;
+        return $pipeResults;
     }
 }

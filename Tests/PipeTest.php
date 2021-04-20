@@ -24,15 +24,15 @@ class PipeTest extends TestCase
 
     public function testCreatePipe()
     {
-        $response = $this->getPipeLineInstance()
+        $pipeResults = $this->getPipeLineInstance()
             ->addPipes(
                 SecurityPipable::class,
                 RunFunction::class
             )
             ->execute();
 
-        self::assertEquals('security checked', $response[SecurityPipable::class]);
-        self::assertEquals('hello world', $response[RunFunction::class]);
+        self::assertEquals('security checked', $pipeResults[SecurityPipable::class]);
+        self::assertEquals('hello world', $pipeResults[RunFunction::class]);
     }
 }
 
